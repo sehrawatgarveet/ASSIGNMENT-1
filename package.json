@@ -7,10 +7,13 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "type": "module",
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.16",
     "classnames": "^2.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tailwindcss": "^4.1.16",
     "yet-another-react-lightbox": "^3.25.0"
   },
   "devDependencies": {

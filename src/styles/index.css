@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root{
   --bg:#2e3236;
   --panel:#3a3e43;
@@ -10,7 +12,7 @@
 *{box-sizing:border-box}
 html,body,#root{height:100%;margin:0;}
 body{
-  background: linear-gradient(180deg,#2b2f33,#232629);
+  background: #25292e;
   font-family: Inter, system-ui, Arial, sans-serif;
   color: #d7dbe0;
   padding: 20px;
@@ -28,10 +30,10 @@ body{
 .right-column{width:520px;}
 .widget {
   width: 100%;
-  background: linear-gradient(180deg,#2b2f33,#1f2225);
+  background: #363c43;
   border-radius: 20px;
   padding: 24px;
-  box-shadow: 6px 6px 14px rgba(0,0,0,.6), -4px -4px 8px rgba(255,255,255,0.02);
+  box-shadow: 6px 6px 4px rgba(0,0,0,.55), -4px -4px 8px rgba(255,255,255,0.02);
   box-sizing: border-box;
 }
 .spacer{height:30px}
@@ -76,6 +78,11 @@ body{
   background: linear-gradient(180deg,#2b2f33,#25282b);
   color:#dfe6ea;
 }
+
+.nav-btn:hover{
+  background: #1b1f24;
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* three equal columns */
@@ -109,12 +116,15 @@ body{
   align-items: center;
   justify-content: center;
   box-shadow: var(--soft-shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* smooth animation */
+  transition: all 0.3s ease, box-shadow 0.3s ease; /* smooth animation */
   cursor: pointer;
+  filter: grayscale(0.9);
 }
 
 .thumb:hover {
-  transform: translateY(-8px); /* lifts up */
+  transform: translateY(-8px) rotateZ(-8deg);
+  filter: grayscale(0);
+  scale: 1.1;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* stronger shadow */
 }
 
@@ -172,3 +182,15 @@ body{
   transform: scale(1.05);
 }
 
+.hover-btn {
+  @apply grow px-2 py-2 rounded-[16px]   relative z-[1] 
+  cursor-pointer
+  before:content-[''] before:absolute
+  before:w-0
+  before:inset-0
+  before:rounded-[16px]
+  before:z-[-1]
+  hover:before:w-full
+  before:transition-all before:duration-500
+  before:bg-[linear-gradient(to_right,rgba(0,255,255,0.0)_0%,rgba(42,43,43,0.5)_100%)];
+}

@@ -10,9 +10,7 @@ export default function RightColumn(){
         <InfoTabs />
       </div>
       <div className="spacer" />
-      <div className="widget bottom-widget">
         <Gallery />
-      </div>
     </div>
   )
 }
